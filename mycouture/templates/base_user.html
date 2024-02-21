@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Welcome to the Home Page</h1>
+
+{% if user.is_authenticated %}
+<h2>Welcome {{fname}} {{lname}}</h2>
+<h3>Logged in Successfully!!!!</h3>
+<button type="submit"><a href="/signout/">Logout</a></button>
+
+{% else %}
+<button type="submit"><a href="/signup/">Signup</a></button>
+<button type="submit"><a href="/signin/">Login</a></button>
+{% endif %}
+
+</body>
+</html>

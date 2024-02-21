@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Safiyas{% endblock %}
+
+{%block content %}
+
+
+
+
+ {% if category %}
+ <div>
+  <div>
+    <p><a href="{% url 'allproducts' %}"></a></p>
+ </div>
+ </div>
+ {% endif %}
+<div>
+ {% if category %}
+    <center>
+  <img src="{{category.image.url}}" alt="{{category.name}}" style="height:400px;width:500px">
+    </center>
+  <br>
+    <div>
+    <h1>{{category.name}}</h1>
+    <p>{{category.description}}</p>
+    </div>
+  {% else %}
+    <div>
+  {% include 'carousal.html' %}
+   </div>
+</div>
+
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+         <div class="col-9 col-sm-12 col-md-4 col-lg-4">
+             <div class="card text-center" style="width: 18rem;">
+                 <a href="{{product.get_url}}"><img src="{{product.image.url}}" class="card-img-top"  style="height:200px;width:150px" alt="{{product.name}}"></a>
+                   <div class="card-body">
+                     <h5 class="card-title">{{product.name}}</h5>
+                       <p class="card-text">{{product.price}}</p>
+                       <p class="card-text">{{product.size}}</p>
+                        <a class="btn btn-secondary" href="{% url 'add_to_cart' product.id %}">ADD TO CART</a>
+                   </div>
+             </div>
+         </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

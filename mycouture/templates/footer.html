@@ -1,0 +1,55 @@
+{% load static %}
+    <style>
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .feedback {
+            margin-top: 20px;
+        }
+
+        .about-us {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+
+
+<footer class="pt-2 pb-1 bg-dark text-light">
+    <!-- Your website content goes here -->
+        <p>&copy; 2023 SafiyasCouture. All rights reserved.</p>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank">
+               Connect Us on <img src="{% static 'img/fblogo.png' %}" alt="facebook" style="width:20px;height:20px;">
+            </a>
+
+        </div>
+
+        <div class="feedback">
+            <a href="{% url 'feedback' %}" target="_blank">Feedback</a>
+        </div>
+
+        <a href="{% url 'aboutus' %}" class="about-us">About Us</a>
+
+
+
+
+</footer>
